@@ -1,6 +1,4 @@
 <script lang="ts">
-	import '../style.css';
-
 	import { Howl } from 'howler';
 
 	import songs from '$lib/data/songs.json';
