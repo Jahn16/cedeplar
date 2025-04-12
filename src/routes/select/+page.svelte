@@ -4,7 +4,7 @@
 </script>
 
 <div>
-	<form>
+	<form method="POST">
 		<fieldset class="fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box">
 			<legend class="fieldset-legend">Início</legend>
 			<span class="fieldset-label"
@@ -13,10 +13,10 @@
 			>
 
 			<label class="fieldset-legend">Matrícula</label>
-			<input type="email" class="input" placeholder="Matrícula" />
+			<input type="number" class="input" placeholder="Matrícula" />
 
 			<legend class="fieldset-legend">Gênero</legend>
-			<select class="select">
+			<select class="select" required>
 				<option disabled selected>Selecione um gênero</option>
 				{#each data.genres as genre}
 					<option>{genre}</option>
@@ -24,7 +24,7 @@
 			</select>
 
 			<legend class="fieldset-legend">Categoria</legend>
-			<select class="select">
+			<select class="select" required>
 				<option disabled selected>Selecione uma categoria</option>
 				<option>Top 10</option>
 				<option>Menos conhecida</option>
