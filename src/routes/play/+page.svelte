@@ -17,6 +17,7 @@
 	let counter = 0;
 	const maxValue = 15;
 	let currentSoundIndex = 0;
+	let currentSong = songs[0];
 
 	sound1.once('play', () => {
 		let intervalID = setInterval(() => {
@@ -37,7 +38,7 @@
 		sound1.play();
 	};
 	const changeTrack = () => {
-		currentSoundIndex++;
+		currentSong = songs[1];
 		sound1.stop();
 		sound2.play();
 	};
@@ -45,8 +46,17 @@
 
 <div class="card w-96 bg-base-100 card-md shadow-sm">
 	<div class="card-body">
-		<h2 class="card-title">{songs[currentSoundIndex].name}</h2>
+		<h2 class="card-title">{currentSong.name}</h2>
 		<progress class="progress w-80" value={counter} max="15"></progress>
+		<div class="rating">
+			{#each { length: 5 }, rating}
+				<div
+					class="mask mask-star"
+					aria-label="{rating + 1} star"
+					aria-current={rating + 1 == currentSong.rating}
+				></div>
+			{/each}
+		</div>
 		<div class="card-actions justify-end">
 			{#if !isPlaying}
 				<button class="btn" on:click={play}>

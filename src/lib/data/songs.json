@@ -4,13 +4,15 @@
 			"name": "Boogie",
 			"url": "boogie.mp3",
 			"genre": "Eletronic",
-			"popularity": "popular"
+			"popularity": "popular",
+			"rating": 4
 		},
 		"unpopular": {
 			"name": "Mortals",
 			"url": "mortals.mp3",
 			"genre": "Eletronic",
-			"popularity": "unpopular"
+			"popularity": "unpopular",
+			"rating": 3
 		}
 	}
 }
