@@ -12,9 +12,6 @@
 				melhor experiência, use fones de ouvido.</span
 			>
 
-			<label class="fieldset-legend">Matrícula</label>
-			<input type="number" class="input" placeholder="Matrícula" />
-
 			<legend class="fieldset-legend">Gênero</legend>
 			<select class="select" required>
 				<option disabled selected>Selecione um gênero</option>
