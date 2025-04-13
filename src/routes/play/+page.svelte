@@ -1,7 +1,15 @@
 <script lang="ts">
 	import { Howl } from 'howler';
 
-	import songs from '$lib/data/songs.json';
+	import songsData from '$lib/data/songs.json';
+	import { page } from '$app/state';
+	const genre = page.url.searchParams.get('genre');
+	const popularity = page.url.searchParams.get('popularity');
+
+	let songs = [
+		songsData[genre][popularity],
+		songsData[genre][popularity == 'popular' ? 'unpopular' : 'popular']
+	];
 
 	let sound1 = new Howl({ src: songs[0].url });
 	let sound2 = new Howl({ src: songs[1].url });
