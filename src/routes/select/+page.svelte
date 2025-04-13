@@ -13,7 +13,7 @@
 			>
 
 			<legend class="fieldset-legend">Gênero</legend>
-			<select class="select" required>
+			<select name="genre" class="select" required>
 				<option disabled selected>Selecione um gênero</option>
 				{#each data.genres as genre}
 					<option>{genre}</option>
@@ -21,10 +21,10 @@
 			</select>
 
 			<legend class="fieldset-legend">Categoria</legend>
-			<select class="select" required>
+			<select name="popularity" class="select" required>
 				<option disabled selected>Selecione uma categoria</option>
-				<option>Top 10</option>
-				<option>Menos conhecida</option>
+				<option value="popular">Top 10</option>
+				<option value="unpopular">Menos conhecida</option>
 			</select>
 			<span class="fieldset-label">Categoria baseada na popularidade da música</span>
 
