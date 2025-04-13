@@ -1,12 +1,16 @@
-[
-	{
-		"name": "Mortals",
-		"url": "mortals.mp3",
-		"genre": "Eletronic"
-	},
-	{
-		"name": "Boogie",
-		"url": "boogie.mp3",
-		"genre": "Eletronic"
+{
+	"eletronic": {
+		"popular": {
+			"name": "Boogie",
+			"url": "boogie.mp3",
+			"genre": "Eletronic",
+			"popularity": "popular"
+		},
+		"unpopular": {
+			"name": "Mortals",
+			"url": "mortals.mp3",
+			"genre": "Eletronic",
+			"popularity": "unpopular"
+		}
 	}
-]
+}
