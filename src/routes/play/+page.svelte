@@ -45,8 +45,14 @@
 </script>
 
 <div class="card w-96 bg-base-100 card-md shadow-sm">
+	<figure>
+		<img
+			src="https://artists.apple.com/assets/artist-og-share-c766a5950ae664ea9073ede99da0df1094ae1a24bee32b86ab9e43e7e02bce2e.jpg"
+			alt="Shoes"
+		/>
+	</figure>
 	<div class="card-body">
-		<h2 class="card-title">{currentSong.name}</h2>
+		<h2 class="card-title">{currentSong.popularity}</h2>
 		<progress class="progress w-80" value={counter} max="15"></progress>
 		<div class="rating">
 			{#each { length: 5 }, rating}
