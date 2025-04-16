@@ -52,17 +52,23 @@
 		/>
 	</figure>
 	<div class="card-body">
-		<h2 class="card-title">{currentSong.popularity}</h2>
+		<h2 class="card-title" style="text-transform: capitalize;">{currentSong.popularity}</h2>
+		<br />
 		<progress class="progress w-80" value={counter} max="15"></progress>
-		<div class="rating">
-			{#each { length: 5 }, rating}
-				<div
-					class="mask mask-star"
-					aria-label="{rating + 1} star"
-					aria-current={rating + 1 == currentSong.rating}
-				></div>
-			{/each}
+		<br />
+
+		<div>
+			<div class="rating">
+				{#each { length: 5 }, rating}
+					<div
+						class="mask mask-star"
+						aria-label="{rating + 1} star"
+						aria-current={rating + 1 == currentSong.rating}
+					></div>
+				{/each}
+			</div>
 		</div>
+
 		<div class="card-actions justify-end">
 			{#if !isPlaying}
 				<button class="btn" on:click={play}>
