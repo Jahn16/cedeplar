@@ -18,14 +18,20 @@
 	const maxValue = 15;
 	let currentSoundIndex = 0;
 	let currentSong = songs[0];
+	let isModalOpen = false;
+	let rating = 0;
+	let ratings = [];
 
 	sound1.once('play', () => {
 		let intervalID = setInterval(() => {
 			if (counter == maxValue) {
 				stop();
+				rate();
 				clearInterval(intervalID);
 			}
-			counter++;
+			if (isPlaying) {
+				counter++;
+			}
 		}, 1000);
 	});
 	const stop = () => {
@@ -39,10 +45,53 @@
 	};
 	const changeTrack = () => {
 		currentSong = songs[1];
-		sound1.stop();
+		isPlaying = true;
 		sound2.play();
+		currentSoundIndex++;
+	};
+
+	const rate = () => {
+		isModalOpen = true;
+		return new Promise((resolve) => {
+			const intervalID = setInterval(() => {
+				if (rating != 0 && !isModalOpen) {
+					ratings.push(rating);
+					rating = 0;
+					resolve();
+					clearInterval(intervalID);
+				}
+			}, 100);
+		});
 	};
 </script>
+
+<dialog id="my_modal_1" class="modal" class:modal-open={isModalOpen}>
+	<div class="modal-box">
+		<h3 class="text-lg font-bold">Avalie a música!</h3>
+		<div class="rating">
+			{#each { length: 5 }, i}
+				<input
+					type="radio"
+					name="rating"
+					class="mask mask-star-2 bg-orange-400"
+					aria-label="{i + 1} star"
+					value={i + 1}
+					bind:group={rating}
+				/>
+			{/each}
+		</div>
+
+		<div class="modal-action">
+			<button
+				class="btn btn-primary"
+				disabled={rating == 0}
+				on:click={() => {
+					isModalOpen = false;
+				}}>Enviar</button
+			>
+		</div>
+	</div>
+</dialog>
 
 <div class="card w-96 bg-base-100 card-md shadow-sm">
 	<figure>
@@ -54,7 +103,7 @@
 	<div class="card-body">
 		<h2 class="card-title" style="text-transform: capitalize;">{currentSong.popularity}</h2>
 		<br />
-		<progress class="progress w-80" value={counter} max="15"></progress>
+		<progress class="progress w-80" value={counter} max={maxValue}></progress>
 		<br />
 
 		<div>
@@ -78,7 +127,14 @@
 					Play
 				</button>
 			{:else}
-				<button class="btn" on:click={changeTrack} disabled={currentSoundIndex != 0}>
+				<button
+					class="btn"
+					on:click={() => {
+						stop();
+						rate().then(() => changeTrack());
+					}}
+					disabled={currentSoundIndex != 0}
+				>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 						><path fill="currentColor" d="m21 9l-4-4v3h-7v2h7v3M7 11l-4 4l4 4v-3h7v-2H7z" /></svg
 					>
