@@ -21,6 +21,7 @@
 	let isModalOpen = false;
 	let rating = 0;
 	let ratings = [];
+	let infoModalOpen = true;
 
 	sound1.once('play', () => {
 		let intervalID = setInterval(() => {
@@ -64,6 +65,26 @@
 		});
 	};
 </script>
+
+<dialog id="my_modal_1" class="modal" class:modal-open={infoModalOpen}>
+	<div class="modal-box">
+		<h3 class="text-lg font-bold">Atenção: você tem 1 minuto para reprodução</h3>
+		<p class="py-4">
+			Durante 1 minuto, você pode mudar para ouvir a música da outra categoria se quiser. Mesmo que
+			você troque de música, você não ouvirá mais do que 1 minuto de música.
+		</p>
+		<div class="modal-action">
+			<form method="dialog">
+				<button
+					class="btn"
+					on:click={() => {
+						infoModalOpen = false;
+					}}>OK</button
+				>
+			</form>
+		</div>
+	</div>
+</dialog>
 
 <dialog id="my_modal_1" class="modal" class:modal-open={isModalOpen}>
 	<div class="modal-box">
