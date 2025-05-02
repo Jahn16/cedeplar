@@ -3,6 +3,7 @@
 
 	import songsData from '$lib/data/songs.json';
 	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 	const genre = page.url.searchParams.get('genre');
 	const popularity = page.url.searchParams.get('popularity');
 
@@ -23,11 +24,15 @@
 	let ratings = [];
 	let infoModalOpen = true;
 
+	const end = () => {
+		stop();
+		rate().then(() => goto('/survey'));
+	};
+
 	sound1.once('play', () => {
 		let intervalID = setInterval(() => {
 			if (counter == maxValue) {
-				stop();
-				rate();
+				end();
 				clearInterval(intervalID);
 			}
 			if (isPlaying) {
