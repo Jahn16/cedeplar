@@ -25,7 +25,7 @@
 				Se tiver dúvidas, entre em contato com a equipe do estudo. Obrigado pela sua colaboração!
 			</p>
 			<div class="card-actions">
-				<form id="confirmation" on:submit|preventDefault={goto('/select')}>
+				<form id="confirmation" on:submit|preventDefault={goto('/select/genre')}>
 					<label class="fieldset-label">
 						<input type="checkbox" class="checkbox" required />
 						Concordo em participar

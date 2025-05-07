@@ -10,6 +10,6 @@ export const load: PageLoad = () => {
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
-		redirect(303, `/play?genre=${data.get('genre')}&popularity=${data.get('popularity')}`);
+		redirect(303, `popularity?genre=${data.get('genre')}`);
 	}
 } satisfies Actions;

@@ -20,13 +20,13 @@
 				{/each}
 			</select>
 
-			<legend class="fieldset-legend">Categoria</legend>
-			<select name="popularity" class="select" required>
-				<option disabled selected>Selecione uma categoria</option>
-				<option value="popular">Top 10</option>
-				<option value="unpopular">Menos conhecida</option>
-			</select>
-			<span class="fieldset-label">Categoria baseada na popularidade da música</span>
+			<!-- <legend class="fieldset-legend">Categoria</legend> -->
+			<!-- <select name="popularity" class="select" required> -->
+			<!-- 	<option disabled selected>Selecione uma categoria</option> -->
+			<!-- 	<option value="popular">Top 10</option> -->
+			<!-- 	<option value="unpopular">Menos conhecida</option> -->
+			<!-- </select> -->
+			<!-- <span class="fieldset-label">Categoria baseada na popularidade da música</span> -->
 
 			<button class="btn btn-neutral mt-4" type="submit">Começar</button>
 		</fieldset>
