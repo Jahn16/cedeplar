@@ -1,0 +1,256 @@
+[
+    {
+      "question": "Você é aluno(a) da UFMG?",
+      "type": "radio",
+      "options": [
+        "Sim",
+        "Não"
+      ]
+    },
+    {
+      "question": "É a primeira vez que você participa deste experimento?",
+      "type": "radio",
+      "options": [
+        "Sim",
+        "Não"
+      ]
+    },
+    {
+      "question": "Você conhece a(s) música(s) que ouviu?",
+      "type": "radio",
+      "options": [
+        "Conheço as duas músicas",
+        "Não conheço a(s) música(s)",
+        "Conheço a música da categoria Top 10",
+        "Conheço a música da categoria Novo artista"
+      ]
+    },
+    {
+      "question": "Pensando em atividades culturais e nos seus hábitos, nos últimos 12 meses, com que frequência você foi a(o):",
+      "type": "table_radio",
+      "headers": [
+        "Atividade",
+        "Mensalmente",
+        "A cada três meses",
+        "Uma vez no semestre",
+        "Uma vez no ano",
+        "Nunca"
+      ],
+      "rows": [
+        "Shows",
+        "Festas e festivais",
+        "Cinema",
+        "Espetáculo de dança",
+        "Teatro",
+        "Museus ou centros culturais"
+      ]
+    },
+    {
+      "question": "Você usa o Spotify para ouvir músicas?",
+      "type": "radio",
+      "options": [
+        "Sim",
+        "Não"
+      ]
+    },
+    {
+      "question": "Se não, qual streaming de música você usa?",
+      "type": "text"
+    },
+    {
+      "question": "Você usa a versão premium (versão paga) do Spotify ou outro streaming?",
+      "type": "radio",
+      "options": [
+        "Sim",
+        "Uso a versão gratuita"
+      ]
+    },
+    {
+      "question": "Com que frequência você usa o Spotify ou outro streaming de música para ouvir músicas?",
+      "type": "radio",
+      "options": [
+        "Todos os dias",
+        "5 a 6 dias na semana",
+        "4 a 5 dias na semana",
+        "3 a 4 dias na semana",
+        "2 a 3 dias na semana",
+        "Uma vez por semana"
+      ]
+    },
+    {
+      "question": "Com que frequência você usa o Spotify ou outro streaming de música para descobrir uma nova música ou um novo artista?",
+      "type": "radio",
+      "options": [
+        "Sempre",
+        "Quase sempre",
+        "Às vezes",
+        "Quase nunca",
+        "Nunca"
+      ]
+    },
+    {
+      "question": "Qual seu gênero musical favorito?",
+      "type": "text"
+    },
+    {
+      "question": "Classifique de 1 a 10, os gêneros musicais abaixo de acordo com suas preferências (1- mais gosto; 10- menos gosto):",
+      "type": "checkbox_ranking",
+      "options": [
+        "Hip-hop",
+        "Rap",
+        "Sertanejo",
+        "Pop",
+        "Funk",
+        "Rock",
+        "Heavy Metal",
+        "Jazz/Blues",
+        "Clássica",
+        "Samba",
+        "Pagode"
+      ]
+    },
+    {
+      "question": "Você diria que o seu gosto musical é influenciado pelos gostos musicais dos seus pais, irmãos e/ou outros parentes próximos?",
+      "type": "radio",
+      "options": [
+        "Sim",
+        "Não",
+        "Em partes"
+      ]
+    },
+    {
+      "question": "Nas próximas afirmações, gostaríamos de saber o que você pensa sobre os streamings de música. Assinale de 1 a 5 o quanto você concorda com a afirmação, sendo 1 discordância total e 5 concordância total.",
+      "type": "table_radio_scale",
+      "headers": [
+        "Afirmação",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "Não sei dizer"
+      ],
+      "rows": [
+        "Os streamings de música são importantes porque contribuem para a revelação de novos artistas",
+        "Os streamings de música favorecem mais os artistas que já fazem sucesso",
+        "Os streamings de música só beneficiam quem tem dinheiro para pagar as versões premium",
+        "A imensa quantidade de músicas presente nos streamings dificultam minha descoberta por novas músicas, gêneros e artistas",
+        "Vinil é um item de colecionador",
+        "A experiência de ouvir uma música em vinil é diferente da experiência de ouvir uma música em um streaming",
+        "O som de uma música no vinil é melhor do que em um streaming",
+        "O rádio é mais usado para ouvir notícias, anúncios e futebol do que para ouvir músicas",
+        "O rádio é importante porque contribui para que novos artistas divulguem suas músicas",
+        "A maioria das músicas tocada em rádios são de artistas que já fazem ou estão fazendo sucesso"
+      ]
+    },
+    {
+      "question": "Com que frequência você:",
+      "type": "table_radio_scale",
+      "headers": [
+        "",
+        "Muito incomum",
+        "Moderadamente incomum",
+        "Nem incomum nem comum",
+        "Moderadamente comum",
+        "Muito comum"
+      ],
+      "rows": [
+        "1. Inicia uma conversa com um estranho",
+        "2. Se esforça para garantir que os outros estejam confortáveis e felizes",
+        "3. Cria uma obra de arte, um texto ou uma peça musical",
+        "4. Prepara-se com antecedência para as coisas",
+        "5. Sente-se triste ou depressivo",
+        "6. Planeja festas ou eventos sociais",
+        "7. Insulta pessoas",
+        "8. Reflete sobre questões filosóficas ou espirituais",
+        "9. Deixa a vida ficar fora de controle",
+        "10. Sente-se estressado(a) ou preocupado(a)",
+        "11. Usa palavras difíceis",
+        "12. Demonstra empatia pelos sentimentos dos outros"
+      ]
+    },
+    {
+      "question": "Qual sua faixa etária?",
+      "type": "radio",
+      "options": [
+        "18 a 20 anos",
+        "21 a 23 anos",
+        "24 a 25 anos"
+      ]
+    },
+    {
+      "question": "Qual o seu gênero?",
+      "type": "radio",
+      "options": [
+        "Feminino",
+        "Masculino",
+        "Não-binário",
+        "NS/NR"
+      ]
+    },
+    {
+      "question": "Qual sua cor ou raça?",
+      "type": "radio",
+      "options": [
+        "Branca",
+        "Preta",
+        "Parda",
+        "Indígena",
+        "Amarela",
+        "NS/NR"
+      ]
+    },
+    {
+      "question": "Qual grau de escolaridade você está cursando?",
+      "type": "radio",
+      "options": [
+        "Graduação",
+        "Especialização",
+        "Mestrado",
+        "Doutorado"
+      ]
+    },
+    {
+      "question": "Qual curso de ensino superior você frequenta?",
+      "type": "text"
+    },
+    {
+      "question": "Qual seu local de residência?",
+      "type": "radio",
+      "options": [
+        "Regional Centro-Sul",
+        "Regional Leste",
+        "Regional Norte",
+        "Regional Nordeste",
+        "Regional Oeste",
+        "Regional Nordeste",
+        "Regional Barreiro",
+        "Regional Pampulha",
+        "Regional Venda Nova",
+        "Não moro em BH, moro nos outros municípios da Região Metropolitana de BH",
+        "Não moro na RMBH, moro em outros municípios de Minas Gerais",
+        "Não moro em Minas Gerais, moro em outros municípios do Brasil",
+        "Não moro no Brasil",
+        "NS/NR"
+      ]
+    },
+    {
+      "question": "Qual é a faixa de renda total aproximada da sua família, considerando todas as pessoas que moram junto com você?",
+      "type": "radio",
+      "options": [
+        "[01] até R$1.518,00 - até 1 salário",
+        "[02] de R$1.518,01 até R$3.036,00 - de 1 a 2 salários",
+        "[03] de R$3.036,01 até R$4.554,00 - de 2 a 3 salários",
+        "[04] de R$4.554,01 até R$6.072,00 - de 3 a 4 salários",
+        "[05] de R$6.072,01 até R$7.590,00 - de 4 a 5 salários",
+        "[06] de R$7.590,01 até R$9.108,00 - de 5 a 6 salários",
+        "[07] de R$9.108,01 até R$10.626,00 - de 6 a 7 salários",
+        "[08] de R$10.626,01 até R$12.144,00 - de 7 a 8 salários",
+        "[09] de R$12.144,01 até R$13.662,00 - de 8 a 9 salários",
+        "[10] de R$13.662,01 até R$15.180,00 - de 9 a 10 salários",
+        "[11] de R$15.180,01 até R$30.360,00 - de 10 a 20 salários",
+        "[12] acima de R$30.360,01 - mais de 20 salários",
+        "[99] NS/NR"
+      ]
+    }
+]
