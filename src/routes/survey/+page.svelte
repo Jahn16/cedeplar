@@ -1,16 +1,18 @@
-<script lang="ts">
+<script>
 	import questions from '$lib/data/questions.json';
 
 	let step = 1;
 	let question = questions[step - 1];
 	let inputName = `question-${step}`;
+	let answers = {};
 
 	const getAnswers = () => {
 		document
 			.querySelectorAll('input[type="radio"]:checked, input[type="text"]')
 			.forEach((input) => {
-				console.log(`${input.value}`);
+				answers[input.name] = input.value;
 			});
+		console.log('Current answers:', answers);
 	};
 </script>
 
@@ -29,7 +31,7 @@
 			</div>
 		{/each}
 	{:else if question.type === 'text'}
-		<input class="input" type="text" id={inputName} />
+		<input class="input" type="text" id={inputName} name={inputName} />
 	{:else if question.type === 'table_radio'}
 		<table class="table table-sm">
 			<thead>
@@ -45,7 +47,7 @@
 						<th>{row}</th>
 						{#each question.headers.slice(1) as header}
 							<td>
-								<input type="radio" name={inputName + '-' + i} value={header} class="radio" />
+								<input type="radio" name={inputName + '-' + (i + 1)} value={header} class="radio" />
 							</td>
 						{/each}
 					</tr>
