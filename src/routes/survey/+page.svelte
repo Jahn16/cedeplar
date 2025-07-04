@@ -23,6 +23,7 @@
 			return undefined;
 		}
 		inputs.forEach((input) => {
+			input.checked = false;
 			questionAnswers.push({ [input.name]: input.value });
 		});
 		console.log('Collected answers:', questionAnswers);
@@ -45,7 +46,7 @@
 			</div>
 		{/each}
 	{:else if question.type === 'text'}
-		<input class="input" type="text" id={inputName} name={inputName} />
+		<input class="input w-100" type="text" id={inputName} name={inputName} />
 	{:else if question.type === 'table_radio'}
 		<table class="table table-sm">
 			<thead>
@@ -61,7 +62,13 @@
 						<th>{row}</th>
 						{#each question.headers.slice(1) as header}
 							<td>
-								<input type="radio" name={inputName + '-' + (i + 1)} value={header} class="radio" />
+								<input
+									type="radio"
+									name={inputName + '-' + (i + 1)}
+									value={header}
+									class="radio"
+									checked={true}
+								/>
 							</td>
 						{/each}
 					</tr>
@@ -72,7 +79,7 @@
 
 	<div class="justify-end card-actions">
 		<button
-			class="btn btn-primary"
+			class="btn btn-primary mt-5"
 			type="submit"
 			on:click={() => {
 				let questionAnswers = getAnswers();

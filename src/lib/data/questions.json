@@ -120,7 +120,7 @@
     },
     {
       "question": "Nas próximas afirmações, gostaríamos de saber o que você pensa sobre os streamings de música. Assinale de 1 a 5 o quanto você concorda com a afirmação, sendo 1 discordância total e 5 concordância total.",
-      "type": "table_radio_scale",
+      "type": "table_radio",
       "headers": [
         "Afirmação",
         "1",
@@ -145,7 +145,7 @@
     },
     {
       "question": "Com que frequência você:",
-      "type": "table_radio_scale",
+      "type": "table_radio",
       "headers": [
         "",
         "Muito incomum",
