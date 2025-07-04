@@ -1,18 +1,32 @@
-<script>
+<script lang="ts">
 	import questions from '$lib/data/questions.json';
 
 	let step = 1;
 	let question = questions[step - 1];
 	let inputName = `question-${step}`;
-	let answers = {};
+	let allAnswers: { string: string }[] = [];
 
-	const getAnswers = () => {
-		document
-			.querySelectorAll('input[type="radio"]:checked, input[type="text"]')
-			.forEach((input) => {
-				answers[input.name] = input.value;
-			});
-		console.log('Current answers:', answers);
+	const getAnswers = (): { string: string }[] | undefined => {
+		if (question.type === 'text') {
+			const input = document.querySelector(`input[type="text"]`);
+			if (!input.value) {
+				return undefined;
+			}
+			return [{ [inputName]: input.value }];
+		}
+		let questionAnswers: { string: string }[] = [];
+		const inputs = document.querySelectorAll('input[type="radio"]:checked');
+		if (
+			inputs.length === 0 ||
+			(question.type === 'table_radio' && inputs.length < question.headers.length - 1)
+		) {
+			return undefined;
+		}
+		inputs.forEach((input) => {
+			questionAnswers.push({ [input.name]: input.value });
+		});
+		console.log('Collected answers:', questionAnswers);
+		return questionAnswers;
 	};
 </script>
 
@@ -61,10 +75,17 @@
 			class="btn btn-primary"
 			type="submit"
 			on:click={() => {
+				let questionAnswers = getAnswers();
+				if (!questionAnswers) {
+					alert('Responda a pergunta antes de prosseguir.');
+					return;
+				}
+
 				step++;
 				question = questions[step - 1];
 				inputName = `question-${step}`;
-				getAnswers();
+				allAnswers = allAnswers.concat(questionAnswers);
+				console.log('All answers so far:', allAnswers);
 			}}>Proximo</button
 		>
 	</div>
