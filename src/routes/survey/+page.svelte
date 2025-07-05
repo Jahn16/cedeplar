@@ -62,13 +62,7 @@
 						<th>{row}</th>
 						{#each question.headers.slice(1) as header}
 							<td>
-								<input
-									type="radio"
-									name={inputName + '-' + (i + 1)}
-									value={header}
-									class="radio"
-									checked={true}
-								/>
+								<input type="radio" name={inputName + '-' + (i + 1)} value={header} class="radio" />
 							</td>
 						{/each}
 					</tr>
