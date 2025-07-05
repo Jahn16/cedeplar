@@ -4,17 +4,22 @@
 	let step = 1;
 	let question = questions[step - 1];
 	let inputName = `question-${step}`;
-	let allAnswers: { string: string }[] = [];
+	type Answer = {
+		questionID: string;
+		answer: string;
+	};
+	let answers: Answer[] = [];
+	let form: HTMLFormElement;
 
-	const getAnswers = (): { string: string }[] | undefined => {
+	const getAnswers = (): Answer[] | undefined => {
 		if (question.type === 'text') {
 			const input = document.querySelector(`input[type="text"]`);
 			if (!input.value) {
 				return undefined;
 			}
-			return [{ [inputName]: input.value }];
+			return [{ questionID: inputName, answer: input.value }];
 		}
-		let questionAnswers: { string: string }[] = [];
+		let questionAnswers: Answer[] = [];
 		const inputs = document.querySelectorAll('input[type="radio"]:checked');
 		if (
 			inputs.length === 0 ||
@@ -24,7 +29,7 @@
 		}
 		inputs.forEach((input) => {
 			input.checked = false;
-			questionAnswers.push({ [input.name]: input.value });
+			questionAnswers.push({ questionID: input.name, answer: input.value });
 		});
 		console.log('Collected answers:', questionAnswers);
 		return questionAnswers;
@@ -81,13 +86,22 @@
 					alert('Responda a pergunta antes de prosseguir.');
 					return;
 				}
+				answers = answers.concat(questionAnswers);
 
-				step++;
-				question = questions[step - 1];
-				inputName = `question-${step}`;
-				allAnswers = allAnswers.concat(questionAnswers);
-				console.log('All answers so far:', allAnswers);
+				if (step < questions.length) {
+					step++;
+					question = questions[step - 1];
+
+					inputName = `question-${step}`;
+				} else {
+					form.submit();
+				}
 			}}>Proximo</button
 		>
 	</div>
+	<form method="POST" bind:this={form}>
+		{#each answers as answer}
+			<input type="hidden" name={answer.questionID} value={answer.answer} />
+		{/each}
+	</form>
 </div>
