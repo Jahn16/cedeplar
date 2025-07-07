@@ -1,0 +1,17 @@
+services:
+  cedeplar:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    env_file: .env
+    volumes:
+      - cedeplar-db:/var/lib/postgresql/data
+volumes:
+  cedeplar-db:
+  
