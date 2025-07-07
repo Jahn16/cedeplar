@@ -19,7 +19,7 @@
 					<div class="rating">
 						{#each { length: 5 }, rating}
 							<div
-								class="mask mask-star"
+								class="mask mask-star-2 bg-orange-400"
 								aria-label="{rating + 1} star"
 								aria-current={data.rating[popularity] == rating}
 							></div>
