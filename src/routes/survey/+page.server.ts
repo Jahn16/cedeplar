@@ -1,10 +1,23 @@
 import type { Actions } from './$types';
+import postgres from 'postgres';
+import { env } from '$env/dynamic/private';
 
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
-		for (const [key, value] of data.entries()) {
-			console.log(`${key}: ${value}`);
-		}
+		const anwers = Object.fromEntries(data.entries());
+
+		const sql = postgres({
+			host: env.DB_HOST,
+			database: env.DB_NAME,
+			username: env.DB_USER,
+			password: env.DB_PASSWORD
+		});
+		const survey = await sql`
+            insert into survey
+            ${sql(anwers)}
+            returning *
+            `;
+		console.log('Survey submitted:', survey);
 	}
 } satisfies Actions;
