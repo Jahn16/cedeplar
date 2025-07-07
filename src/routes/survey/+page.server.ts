@@ -8,10 +8,10 @@ export const actions = {
 		const anwers = Object.fromEntries(data.entries());
 
 		const sql = postgres({
-			host: env.DB_HOST,
-			database: env.DB_NAME,
-			username: env.DB_USER,
-			password: env.DB_PASSWORD
+			host: env.POSTGRES_HOST,
+			database: env.POSTGRES_DB,
+			username: env.POSTGRES_USER,
+			password: env.POSTGRES_PASSWORD
 		});
 		const survey = await sql`
             insert into survey
