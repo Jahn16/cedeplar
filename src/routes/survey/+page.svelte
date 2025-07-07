@@ -1,5 +1,8 @@
 <script lang="ts">
+	import type { PageProps } from './$types';
 	import questions from '$lib/data/questions.json';
+
+	let { data }: PageProps = $props();
 
 	let step = 1;
 	let question = questions[step - 1];
@@ -80,7 +83,7 @@
 		<button
 			class="btn btn-primary mt-5"
 			type="submit"
-			on:click={() => {
+			onclick={() => {
 				let questionAnswers = getAnswers();
 				if (!questionAnswers) {
 					alert('Responda a pergunta antes de prosseguir.');
@@ -100,6 +103,9 @@
 		>
 	</div>
 	<form method="POST" bind:this={form}>
+		<input type="hidden" name="popularity" value={data.popularity} />
+		<input type="hidden" name="popular-rating" value={data.popularRating} />
+		<input type="hidden" name="unpopular-rating" value={data.unpopularRating} />
 		{#each answers as answer}
 			<input type="hidden" name={answer.questionID} value={answer.answer} />
 		{/each}
