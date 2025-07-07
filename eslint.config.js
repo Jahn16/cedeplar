@@ -32,6 +32,9 @@ export default ts.config(
 				parser: ts.parser,
 				svelteConfig
 			}
+		},
+		rules: {
+			'svelte/require-each-key': 'off'
 		}
 	}
 );
