@@ -16,17 +16,25 @@
 	let sound2 = new Howl({ src: songs[1].url });
 	let isPlaying = false;
 	let counter = 0;
-	const maxValue = 15;
+	const maxValue = 10;
 	let currentSoundIndex = 0;
 	let currentSong = songs[0];
 	let isModalOpen = false;
 	let rating = 0;
-	let ratings = [];
+	let ratings = {
+		popular: 0,
+		unpopular: 0
+	};
 	let infoModalOpen = true;
 
 	const end = () => {
 		stop();
-		rate().then(() => goto('/survey'));
+
+		rate().then(() =>
+			goto(
+				`/survey?popularity=${popularity}&prating=${ratings.popular}&urating=${ratings.unpopular}&genre=${genre}`
+			)
+		);
 	};
 
 	sound1.once('play', () => {
@@ -61,7 +69,7 @@
 		return new Promise((resolve) => {
 			const intervalID = setInterval(() => {
 				if (rating != 0 && !isModalOpen) {
-					ratings.push(rating);
+					ratings[currentSong.popularity] = rating;
 					rating = 0;
 					resolve();
 					clearInterval(intervalID);
