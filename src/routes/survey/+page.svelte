@@ -102,9 +102,9 @@
 		>
 	</div>
 	<form method="POST" bind:this={form}>
-		<input type="hidden" name="popularity" value={data.popularity} />
-		<input type="hidden" name="popular-rating" value={data.popularRating} />
-		<input type="hidden" name="unpopular-rating" value={data.unpopularRating} />
+		{#each Object.entries(data.playData) as [key, value]}
+			<input type="hidden" name={key} {value} />
+		{/each}
 		{#each answers as answer}
 			<input type="hidden" name={answer.questionID} value={answer.answer} />
 		{/each}

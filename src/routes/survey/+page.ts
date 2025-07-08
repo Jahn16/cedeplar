@@ -6,8 +6,6 @@ export const load: PageLoad = ({ url }) => {
 	const searchParams = url.searchParams;
 	return {
 		questions: questions,
-		popularity: searchParams.get('popularity'),
-		popularRating: searchParams.get('prating'),
-		unpopularRating: searchParams.get('urating')
+		playData: Object.fromEntries(searchParams.entries())
 	};
 };

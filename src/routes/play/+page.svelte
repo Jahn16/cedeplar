@@ -26,13 +26,14 @@
 		unpopular: 0
 	};
 	let infoModalOpen = true;
+	let swichTime = -1;
 
 	const end = () => {
 		stop();
 
 		rate().then(() =>
 			goto(
-				`/survey?popularity=${popularity}&prating=${ratings.popular}&urating=${ratings.unpopular}&genre=${genre}`
+				`/survey?popularity=${popularity}&prating=${ratings.popular}&urating=${ratings.unpopular}&genre=${genre}&stime=${swichTime}`
 			)
 		);
 	};
@@ -58,6 +59,7 @@
 		sound1.play();
 	};
 	const changeTrack = () => {
+		swichTime = counter;
 		currentSong = songs[1];
 		isPlaying = true;
 		sound2.play();
