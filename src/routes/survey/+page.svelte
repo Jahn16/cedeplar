@@ -1,17 +1,16 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import questions from '$lib/data/questions.json';
 
 	let { data }: PageProps = $props();
 
 	let step = 1;
-	let question = questions[step - 1];
-	let inputName = `question-${step}`;
+	let question = $state(data.questions[step - 1]);
+	let inputName = $state(`question-${step}`);
 	type Answer = {
 		questionID: string;
 		answer: string;
 	};
-	let answers: Answer[] = [];
+	let answers: Answer[] = $state([]);
 	let form: HTMLFormElement;
 
 	const getAnswers = (): Answer[] | undefined => {
@@ -91,9 +90,9 @@
 				}
 				answers = answers.concat(questionAnswers);
 
-				if (step < questions.length) {
+				if (step < data.questions.length) {
 					step++;
-					question = questions[step - 1];
+					question = data.questions[step - 1];
 
 					inputName = `question-${step}`;
 				} else {
