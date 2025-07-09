@@ -181,8 +181,8 @@
 </div>
 <form method="POST" bind:this={form}>
 	<input type="hidden" name="genre" value={data.genre} />
-	<input type="hidden" name="popularity" value={data.popularity} />
-	<input type="hidden" name="stime" value={swichTime} />
-	<input type="hidden" name="prating" value={ratings.popular} />
-	<input type="hidden" name="urating" value={ratings.unpopular} />
+	<input type="hidden" name="first_popularity" value={data.popularity} />
+	<input type="hidden" name="switch_time" value={swichTime} />
+	<input type="hidden" name="popular_rating" value={ratings.popular} />
+	<input type="hidden" name="unpopular_rating" value={ratings.unpopular} />
 </form>
