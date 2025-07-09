@@ -1,42 +1,38 @@
 <script lang="ts">
 	import { Howl } from 'howler';
+	import type { PageProps } from './$types';
 
-	import songsData from '$lib/data/songs.json';
+	let { data }: PageProps = $props();
+
 	import translation from '$lib/data/translation.json';
-	import { page } from '$app/state';
-	import { goto } from '$app/navigation';
-	const genre = page.url.searchParams.get('genre');
-	const popularity = page.url.searchParams.get('popularity');
 
 	let songs = [
-		songsData[genre][popularity],
-		songsData[genre][popularity == 'popular' ? 'unpopular' : 'popular']
+		data.songs[data.genre][data.popularity],
+		data.songs[data.genre][data.popularity == 'popular' ? 'unpopular' : 'popular']
 	];
 
 	let sound1 = new Howl({ src: songs[0].url });
 	let sound2 = new Howl({ src: songs[1].url });
-	let isPlaying = false;
-	let counter = 0;
+	let isPlaying = $state(false);
+	let counter = $state(0);
 	const maxValue = 10;
-	let currentSoundIndex = 0;
-	let currentSong = songs[0];
-	let isModalOpen = false;
-	let rating = 0;
+	let currentSoundIndex = $state(0);
+	let currentSong = $state(songs[0]);
+	let isModalOpen = $state(false);
+	let rating = $state(0);
+	let infoModalOpen = $state(true);
+	let swichTime = $state(-1);
 	let ratings = {
 		popular: 0,
 		unpopular: 0
 	};
-	let infoModalOpen = true;
-	let swichTime = -1;
+
+	let form: HTMLFormElement;
 
 	const end = () => {
 		stop();
 
-		rate().then(() =>
-			goto(
-				`/survey?popularity=${popularity}&prating=${ratings.popular}&urating=${ratings.unpopular}&genre=${genre}&stime=${swichTime}`
-			)
-		);
+		rate().then(() => form.submit());
 	};
 
 	sound1.once('play', () => {
@@ -93,7 +89,7 @@
 			<form method="dialog">
 				<button
 					class="btn"
-					on:click={() => {
+					onclick={() => {
 						infoModalOpen = false;
 					}}>OK</button
 				>
@@ -122,7 +118,7 @@
 			<button
 				class="btn btn-primary"
 				disabled={rating == 0}
-				on:click={() => {
+				onclick={() => {
 					isModalOpen = false;
 				}}>Enviar</button
 			>
@@ -159,7 +155,7 @@
 
 		<div class="card-actions justify-end">
 			{#if !isPlaying}
-				<button class="btn" on:click={play}>
+				<button class="btn" onclick={play}>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 						><path fill="currentColor" d="M8.5 8.64L13.77 12L8.5 15.36zM6.5 5v14l11-7" /></svg
 					>
@@ -168,7 +164,7 @@
 			{:else}
 				<button
 					class="btn"
-					on:click={() => {
+					onclick={() => {
 						stop();
 						rate().then(() => changeTrack());
 					}}
@@ -183,3 +179,10 @@
 		</div>
 	</div>
 </div>
+<form method="POST" bind:this={form}>
+	<input type="hidden" name="genre" value={data.genre} />
+	<input type="hidden" name="popularity" value={data.popularity} />
+	<input type="hidden" name="stime" value={swichTime} />
+	<input type="hidden" name="prating" value={ratings.popular} />
+	<input type="hidden" name="urating" value={ratings.unpopular} />
+</form>
