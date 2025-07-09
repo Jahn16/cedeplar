@@ -102,9 +102,7 @@
 		>
 	</div>
 	<form method="POST" bind:this={form}>
-		{#each Object.entries(data.playData) as [key, value]}
-			<input type="hidden" name={key} {value} />
-		{/each}
+		<input type="hidden" name="play_id" value={data.playID} />
 		{#each answers as answer}
 			<input type="hidden" name={answer.questionID} value={answer.answer} />
 		{/each}
