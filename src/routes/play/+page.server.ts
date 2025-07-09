@@ -8,7 +8,7 @@ export const actions = {
 		const playData = Object.fromEntries(formData.entries()) as { [key: string]: string };
 		console.log('Play data received:', playData);
 
-		const playID = savePlayData(playData);
+		const playID = await savePlayData(playData);
 		redirect(303, `/survey?play-id=${playID}`);
 	}
 } satisfies Actions;
