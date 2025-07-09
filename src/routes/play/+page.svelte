@@ -2,6 +2,7 @@
 	import { Howl } from 'howler';
 
 	import songsData from '$lib/data/songs.json';
+	import translation from '$lib/data/translation.json';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	const genre = page.url.searchParams.get('genre');
@@ -137,7 +138,9 @@
 		/>
 	</figure>
 	<div class="card-body">
-		<h2 class="card-title" style="text-transform: capitalize;">{currentSong.popularity}</h2>
+		<h2 class="card-title" style="text-transform: capitalize;">
+			{translation.pt.popularity[currentSong.popularity]}
+		</h2>
 		<br />
 		<progress class="progress w-80" value={counter} max={maxValue}></progress>
 		<br />
