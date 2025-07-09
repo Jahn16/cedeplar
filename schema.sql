@@ -8,7 +8,7 @@ CREATE TABLE plays (
 );
 
 CREATE TABLE survey (
-    play_id UUID references plays(id);
+    play_id UUID references plays(id),
     "question-1" VARCHAR(255),
     "question-2" VARCHAR(255),
     "question-3" VARCHAR(255),
