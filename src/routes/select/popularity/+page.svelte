@@ -7,7 +7,7 @@
 	const popularities = ['popular', 'unpopular'];
 </script>
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid md:grid-cols-2 sm:grid-cols-1 gap-4">
 	{#each popularities as popularity}
 		<div class="card w-96 bg-base-100 card-md shadow-sm">
 			<div class="card-body">
@@ -30,7 +30,10 @@
 				</div>
 
 				<div class="card-actions justify-end">
-					<button class="btn" on:click={goto(`/play?genre=${data.genre}&popularity=${popularity}`)}>
+					<button
+						class="btn"
+						onclick={() => goto(`/play?genre=${data.genre}&popularity=${popularity}`)}
+					>
 						Selecionar
 					</button>
 				</div>
