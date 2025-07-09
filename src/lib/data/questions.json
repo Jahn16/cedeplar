@@ -76,8 +76,10 @@
 	},
 	{
 		"question": "Classifique de 1 a 10, os gêneros musicais abaixo de acordo com suas preferências (1- mais gosto; 10- menos gosto):",
-		"type": "checkbox_ranking",
-		"options": [
+		"type": "table_number",
+		"maxValue": 10,
+		"minValue": 1,
+		"rows": [
 			"Hip-hop",
 			"Rap",
 			"Sertanejo",
