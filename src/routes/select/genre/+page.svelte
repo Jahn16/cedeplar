@@ -1,6 +1,10 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
+
+	const capitalize = (s: string) => {
+		return s.charAt(0).toUpperCase() + s.slice(1);
+	};
 </script>
 
 <div>
@@ -16,7 +20,7 @@
 			<select name="genre" class="select" required>
 				<option disabled selected>Selecione um gênero</option>
 				{#each data.genres as genre}
-					<option>{genre}</option>
+					<option value={genre}>{capitalize(genre)}</option>
 				{/each}
 			</select>
 
