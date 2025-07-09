@@ -139,18 +139,6 @@
 		<progress class="progress w-80" value={counter} max={maxValue}></progress>
 		<br />
 
-		<div>
-			<div class="rating">
-				{#each { length: 5 }, rating}
-					<div
-						class="mask mask-star"
-						aria-label="{rating + 1} star"
-						aria-current={rating + 1 == currentSong.rating}
-					></div>
-				{/each}
-			</div>
-		</div>
-
 		<div class="card-actions justify-end">
 			{#if !isPlaying}
 				<button class="btn" onclick={play}>
