@@ -25,7 +25,7 @@
 		const inputs = document.querySelectorAll('input[type="radio"]:checked');
 		if (
 			inputs.length === 0 ||
-			(question.type === 'table_radio' && inputs.length < question.headers.length)
+			(question.type === 'table_radio' && inputs.length < question.rows.length)
 		) {
 			return undefined;
 		}
