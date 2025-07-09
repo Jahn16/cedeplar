@@ -22,7 +22,7 @@ export async function submitSurvey(anwers: { [key: string]: string }) {
 	}
 }
 
-export async function savePlayData(play): string {
+export async function savePlayData(play): Promise<string> {
 	type Play = {
 		id: string;
 	};
