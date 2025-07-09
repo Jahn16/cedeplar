@@ -13,7 +13,7 @@
 	let sound2 = new Howl({ src: `songs/${data.genre}/${secondPopularity}.mp3` });
 	let isPlaying = $state(false);
 	let counter = $state(0);
-	const maxValue = 10;
+	const maxValue = 60;
 	let currentSoundIndex = $state(0);
 	let currentSong = $state(songs[0]);
 	let isModalOpen = $state(false);
