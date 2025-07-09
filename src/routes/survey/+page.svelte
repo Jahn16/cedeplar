@@ -3,7 +3,7 @@
 
 	let { data }: PageProps = $props();
 
-	let step = 1;
+	let step = 13;
 	let question = $state(data.questions[step - 1]);
 	let inputName = $state(`question-${step}`);
 	type Answer = {
@@ -71,8 +71,8 @@
 </script>
 
 <!-- eslint-disable svelte/require-each-key -->
-<div class="container-md mx-5">
-	<h2 class="card-title mb-5">
+<div class="md:container-md sm:container-sm mx-5">
+	<h2 style="font-weight: bold">
 		{question.question}
 	</h2>
 	{#if question.type === 'radio'}
@@ -87,7 +87,7 @@
 	{:else if question.type === 'text'}
 		<input class="input w-100" type="text" id={inputName} name={inputName} />
 	{:else if question.type === 'table_radio'}
-		<table class="table table-sm">
+		<table class="md:table sm:table-sm">
 			<thead>
 				<tr>
 					{#each question.headers as header}
