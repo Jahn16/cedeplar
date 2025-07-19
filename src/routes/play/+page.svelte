@@ -9,8 +9,8 @@
 
 	let songs = [data.songs[data.genre][data.popularity], data.songs[data.genre][secondPopularity]];
 
-	let sound1 = new Howl({ src: `songs/${data.genre}/${data.popularity}.mp3` });
-	let sound2 = new Howl({ src: `songs/${data.genre}/${secondPopularity}.mp3` });
+	let sound1 = new Howl({ src: songs[0].url });
+	let sound2 = new Howl({ src: songs[1].url });
 	let isPlaying = $state(false);
 	let counter = $state(0);
 	const maxValue = 60;
